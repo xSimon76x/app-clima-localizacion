@@ -18,8 +18,9 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+
+  /* align-items: center;
+  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -35,4 +36,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.leftContent {
+  background-color: #0e1338;
+}
+
+.rightContent {
+  background-color: #080520;
+}
+
+.containerGlobal {
+  width: 100%;
 }
