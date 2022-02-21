@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import "bulma/css/bulma.min.css";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";
 import Home from "./pages/home";
@@ -24,7 +25,7 @@ function App() {
 
     //   </header>
     // </div>
-    <div className="App-header">
+    <div class="App-header">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />

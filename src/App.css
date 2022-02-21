@@ -42,6 +42,12 @@
   background-color: #0e1338;
 }
 
+.imgBack {
+  top: 0;
+  background-image: url("./assets/images/back-image.png");
+  position: absolute;
+}
+
 .rightContent {
   background-color: #080520;
 }
