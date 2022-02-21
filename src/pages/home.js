@@ -4,12 +4,12 @@ import imgBack from "../assets/images/back-image.png";
 
 export default function Weather() {
   return (
-    <div class="containerGlobal">
-      <div class="columns is-desktop is-mobile">
+    <div class="">
+      <div class="columns is-desktop is-mobile global">
         <div class="column leftContent ">
-          <div class="imgBack"></div>
-
-          <MainWeather />
+          <div class="imgBack">
+            <MainWeather />
+          </div>
         </div>
         <div class="column is-three-quarters rightContent">
           <Statistics />

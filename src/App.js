@@ -7,6 +7,10 @@ import React from "react";
 import Home from "./pages/home";
 
 function App() {
+  // var height = $(window).height();
+
+  // document.getElementById("divContainer").height(height);
+
   return (
     // <div className="App">
     //   <header className="App-header">
@@ -25,7 +29,7 @@ function App() {
 
     //   </header>
     // </div>
-    <div class="App-header">
+    <div id="divContainer" class="App-header">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
