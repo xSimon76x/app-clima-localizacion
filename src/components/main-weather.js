@@ -45,7 +45,7 @@ export default function MainWeather() {
           </div>
           <div
             class="columns is-desktop is-mobile is-gapless"
-            style={{ paddingTop: "6vh" }}
+            style={{ paddingTop: "8vh" }}
           >
             <div class="column ">
               <h5 style={{ textAlign: "center", opacity: "0.4" }}>Shower</h5>
@@ -67,7 +67,10 @@ export default function MainWeather() {
             >
               <p> | </p>
             </div>
-            <div class="column is-6" style={{ opacity: "0.4" }}>
+            <div
+              class="column is-6"
+              style={{ textAlign: "start", opacity: "0.4" }}
+            >
               <p>Fri, 5 Jun</p>
             </div>
           </div>
@@ -84,7 +87,11 @@ export default function MainWeather() {
             </div>
             <div
               class="column "
-              style={{ alignSelf: "center", opacity: "0.4" }}
+              style={{
+                textAlign: "start",
+                alignSelf: "center",
+                opacity: "0.4",
+              }}
             >
               <p>Ubicacion</p>
             </div>
