@@ -4,96 +4,62 @@ import imgWeather from "../assets/icons/clima.png";
 
 export default function MainWeather() {
   return (
-    <div>
-      <div class="containerGlobal">
-        <div class="is-flex-direction-row">
-          <div class="columns is-mobile is-desktop">
-            <div class="column containerButton is-8 is-three-quarters-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-              <button class="button">
-                <p style={{ color: "white", fontSize: "14px" }}>
-                  Buscar por lugar
-                </p>
-              </button>
-            </div>
-            <div class="column is-4 conGps ">
-              <GpsFixed class="btnWeather" style={{ color: "#d9d9d9" }} />
+    <div className="section">
+      <div className="container container.is-fullhd container.is-max-desktop">
+        <div className="columns is-mobile is-desktop ">
+          <div className="column">
+            <div className="btnBuscar">
+              <p style={{ color: "white" }}>Search for places</p>
             </div>
           </div>
-          <div class="columns" style={{ paddingTop: "6vh" }}>
-            <div class="column">
-              <img class="imgClimaMainWeather" src={imgWeather}></img>
+          <div className="column btnWeather is-two-fifths-tablet is-two-fifths-mobile">
+            <div className="gps ">
+              <GpsFixed
+                className="icon is-medium"
+                style={{ fill: "white", cursor: "pointer" }}
+              />
             </div>
           </div>
-          <div
-            class="columns is-desktop is-mobile is-gapless"
-            style={{ paddingTop: "6vh" }}
-          >
-            <div class="column is-8">
-              <h1
-                style={{
-                  fontSize: "110px",
-                  fontFamily: "Merriweather",
-                  float: "right",
-                }}
-              >
-                15
-              </h1>
-            </div>
-            <div class="column is-4" style={{ display: "flex" }}>
-              <h2 class="grados">°C</h2>
-            </div>
-          </div>
-          <div
-            class="columns is-desktop is-mobile is-gapless"
-            style={{ paddingTop: "8vh" }}
-          >
-            <div class="column ">
-              <h5 style={{ textAlign: "center", opacity: "0.4" }}>Shower</h5>
-            </div>
-          </div>
-          <div
-            class="columns is-desktop is-mobile is-gapless"
-            style={{ paddingTop: "6vh" }}
-          >
-            <div
-              class="column is-5"
-              style={{ textAlign: "end", opacity: "0.4" }}
-            >
-              <p>Today</p>
-            </div>
-            <div
-              class="column is-1"
-              style={{ textAlign: "center", opacity: "0.4" }}
-            >
-              <p> | </p>
-            </div>
-            <div
-              class="column is-6"
-              style={{ textAlign: "start", opacity: "0.4" }}
-            >
-              <p>Fri, 5 Jun</p>
-            </div>
-          </div>
+        </div>
 
-          <div
-            class="columns is-desktop is-mobile is-gapless"
-            style={{ paddingTop: "2vh" }}
-          >
-            <div
-              class="column is-5"
-              style={{ textAlign: "end", opacity: "0.4" }}
-            >
-              <LocationOn style={{ height: "22px" }} />
+        <div className="columns is-mobile is-desktop">
+          <div className="column is-full">
+            <div className="imgContenido ">
+              <img className="imgClimaMainWeather" src={imgWeather}></img>
             </div>
-            <div
-              class="column "
-              style={{
-                textAlign: "start",
-                alignSelf: "center",
-                opacity: "0.4",
-              }}
-            >
-              <p>Ubicacion</p>
+          </div>
+        </div>
+        <div className="columns is-desktop is-mobile is-gapless">
+          <div className="gradosValor column is-two-thirds">
+            <h1>15</h1>
+          </div>
+          <div className="gradosMedida column">
+            <h2 className="grados is-size-3 ">°C</h2>
+          </div>
+        </div>
+        <div className="columns is-desktop is-mobile is-gapless">
+          <div className="column ">
+            <div className="containerWeather">
+              <p className="typeWeather">Shower</p>
+            </div>
+          </div>
+        </div>
+        <div className="columns is-desktop is-mobile is-gapless">
+          <div
+            className="column is-full"
+            style={{ textAlign: "end", opacity: "0.4" }}
+          >
+            <div className="tiempoDescripcion">
+              <p>Today | Fri, 5 Jun </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="columns is-desktop is-mobile is-gapless">
+          <div className="column" style={{ opacity: "0.4" }}>
+            <div className="ubicacion">
+              <LocationOn style={{ height: "20px", color: "white" }} />
+              <p>Helsinki</p>
             </div>
           </div>
         </div>

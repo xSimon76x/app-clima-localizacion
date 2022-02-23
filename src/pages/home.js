@@ -1,17 +1,17 @@
 import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
-import imgBack from "../assets/images/back-image.png";
 
 export default function Weather() {
   return (
     <div>
-      <div class="columns is-desktop is-mobile global">
-        <div class="column leftContent ">
-          <div class="imgBack"></div>
+      <div className="Content columns is-gapless is-mobile is-desktop">
+        <div className="column leftContent">
+          {/* <div class="imgBack">
+          </div> */}
           <MainWeather />
         </div>
-        <div class="column is-three-quarters rightContent">
-          <Statistics />
+        <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
+          {/* <Statistics /> */}
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@
 
 .App {
   text-align: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .App-logo {
@@ -18,15 +18,15 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  /* min-height: 100vh;
   height: auto;
-  max-height: 150vmax;
+  max-height: 150vmax; */
   width: 100%;
   /* 
     min-width: 100vw;
   align-items: center;
   justify-content: center; */
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -42,92 +42,12 @@
     transform: rotate(360deg);
   }
 }
-.imgBack {
-  top: 0;
-  background-image: url("./assets/images/back-image.png");
-  filter: brightness(100%);
 
-  opacity: 1;
-}
-.global {
-  height: 100%;
-}
-.leftContent {
-  background-color: #191d3d;
-  height: 100%;
-  width: 30%;
-}
+/* styles home.js */
+@import url("../src/assets/css/stylesPage.css");
 
-.rightContent {
-  background-color: #080520;
-  width: 70%;
-  height: 100%;
-}
+/* styles statistics.js */
+@import url("../src/assets/css/styleStatistics.css");
 
-.containerGlobal {
-  width: 100%;
-  padding: 4vh;
-  height: 100%;
-}
-
-.containerButton button {
-  cursor: pointer;
-  box-shadow: 0px 4px rgba(0, 0, 0, 0.4);
-  background-color: #7e808a;
-  border-color: #7e808a;
-  min-width: 6.5vw;
-  min-height: 4vh;
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.conGps {
-  position: relative;
-}
-.btnWeather {
-  position: relative;
-  display: flex;
-  top: 50%;
-  transform: translate(0, -50%);
-  background: #7e808a;
-  border-radius: 50%;
-  min-width: auto;
-  max-width: 1.7vw;
-  clear: right;
-  float: right;
-  cursor: pointer;
-  padding: 0.2vw;
-  box-shadow: 0px 4px rgba(20, 20, 20, 0.8);
-}
-
-.imgClimaMainWeather {
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  min-width: auto;
-  min-height: auto;
-  max-width: 10vw;
-  max-height: 16vh;
-}
-
-.centrado {
-  text-align: center;
-  font-family: "Merriweather", serif;
-}
-
-p {
-  font-size: 18px;
-}
-
-.grados important {
-  align-items: flex-end;
-}
-
-/* ========= */
-/* statistics.js */
-.containerStatistics {
-  padding-top: 4vh;
-  padding-right: 8vw;
-  padding-left: 8vw;
-  height: 100vh;
-}
+/* styles main-weather.js /data */
+@import url("../src/assets/css/stylesMain-Weather.css");

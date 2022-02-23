@@ -28,14 +28,23 @@ function App() {
 
     //   </header>
     // </div>
-    <div class="App">
-      <header className="App-header">
+    <div
+      className="App"
+      style={{
+        top: "0",
+        bottom: "0",
+        left: "0",
+        right: "0",
+        position: "absolute",
+      }}
+    >
+      <div>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
         </Router>
-      </header>
+      </div>
     </div>
   );
 }

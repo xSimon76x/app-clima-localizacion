@@ -1,0 +1,26 @@
+.containerGlobal {
+  width: 100%;
+  padding: 4vh;
+  height: 100%;
+}
+
+.centrado {
+  text-align: center;
+  font-family: "Merriweather", serif;
+}
+
+p {
+  font-size: 18px;
+}
+
+.grados important {
+  align-items: flex-end;
+}
+
+.containerStatistics {
+  position: relative;
+  padding-top: 4vh;
+  padding-right: 8vw;
+  padding-left: 8vw;
+  height: 100vh;
+}

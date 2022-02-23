@@ -1,0 +1,206 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* 
+.container div {
+  position: relative;
+  width: 100%;
+  height: auto;
+} */
+
+/* .containerButton button {
+  cursor: pointer;
+  box-shadow: 0px 4px rgba(0, 0, 0, 0.4);
+  background-color: #7e808a;
+  border-color: #7e808a;
+} */
+/* min-height: auto;
+  min-width: auto;
+  height: 100%;
+  width: auto; */
+
+.btnBuscar {
+  padding: 10px;
+  box-shadow: 4px 4px rgba(20, 20, 20, 0.3);
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid;
+  border-color: #5a5a5a;
+  color: #929296;
+  background-color: #777777;
+  position: relative;
+}
+.btnBuscar:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 1s ease;
+}
+
+.btnBuscar:hover:before {
+  width: 100%;
+}
+
+/* .btnBuscar:hover {
+  border: 10px solid;
+  border-color: #ffffff;
+} */
+
+.btnWeather {
+  display: flex !important;
+  position: relative !important;
+  justify-content: end !important;
+  align-items: center !important;
+}
+
+.gps {
+  position: relative;
+  background-color: #777777;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  box-shadow: 0px 4px rgba(20, 20, 20, 0.8);
+}
+
+.gps:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.gps:hover:before {
+  width: 100%;
+}
+
+.cardWeahter {
+  position: relative;
+  width: auto;
+  height: 240px;
+}
+
+.imgContenido {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgClimaMainWeather {
+  min-width: auto;
+  min-height: auto;
+  max-width: 60%;
+  max-height: 100%;
+}
+
+.gradosMedida {
+  display: flex !important;
+  position: relative;
+  align-items: flex-end;
+  justify-content: start;
+}
+
+.gradosMedida h2 {
+  color: #929296;
+}
+
+.gradosValor h1 {
+  font-size: 100px;
+  font-family: "Merriweather";
+  color: #ffffff;
+}
+
+.gradosValor {
+  display: flex !important;
+  position: relative;
+  align-items: flex-end;
+  justify-content: end;
+}
+
+.containerWeather {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 20px;
+  padding-bottom: 30px; */
+}
+
+.typeWeather {
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.5;
+  font-size: 25px;
+}
+
+.tiempoDescripcion {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.tiempoDescripcion p {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.ubicacion {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.ubicacion p {
+  color: white;
+  font-size: 14px;
+}
+
+/* .column {
+  width: 25%;
+  float: left;
+  padding: 0px 10px;
+}
+
+.columns::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 1200px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+} */
+
+.card {
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  background: "#1a1c31";
+  padding-bottom: 15px;
+}

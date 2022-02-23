@@ -1,0 +1,40 @@
+.imgBack {
+  top: 0;
+  background-image: url("../images/back-image.png");
+  height: 40%;
+  background-size: cover;
+  margin-top: 4vh;
+  /* background-color: wheat; */
+  /* background-repeat: no-repeat; */
+  width: auto;
+  filter: brightness(100%);
+  opacity: 1;
+}
+
+.global {
+  height: 100%;
+}
+
+.Content {
+  display: flex;
+  height: 100vh;
+}
+
+.leftContent {
+  display: flex;
+  background-color: #191d3d;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+.RightContent {
+  display: flex;
+  background-color: #080520;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
