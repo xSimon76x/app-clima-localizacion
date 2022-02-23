@@ -44,25 +44,35 @@ export default function MainWeather() {
             </div>
           </div>
         </div>
-        <div className="columns is-desktop is-mobile is-gapless">
-          <div
-            className="column is-full"
-            style={{ textAlign: "end", opacity: "0.4" }}
-          >
-            <div className="tiempoDescripcion">
-              <p>Today | Fri, 5 Jun </p>
-            </div>
+        {/*  */}
+        {/* <div className="columns">
+          <div className="column is-full">
+            
           </div>
-        </div>
+        </div> */}
+        <footer className="footer">
+          <div className="footerContent">
+            <div className="columns is-desktop is-mobile is-gapless">
+              <div
+                className="column is-full"
+                style={{ textAlign: "end", opacity: "0.4" }}
+              >
+                <div className="tiempoDescripcion">
+                  <p>Today | Fri, 5 Jun </p>
+                </div>
+              </div>
+            </div>
 
-        <div className="columns is-desktop is-mobile is-gapless">
-          <div className="column" style={{ opacity: "0.4" }}>
-            <div className="ubicacion">
-              <LocationOn style={{ height: "20px", color: "white" }} />
-              <p>Helsinki</p>
+            <div className="columns is-desktop is-mobile is-gapless">
+              <div className="column" style={{ opacity: "0.4" }}>
+                <div className="ubicacion">
+                  <LocationOn style={{ height: "20px", color: "white" }} />
+                  <p>Helsinki</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
   );
