@@ -13,7 +13,7 @@ export default function MainWeather() {
             </div>
           </div>
           <div className="column btnWeather is-two-fifths-tablet is-two-fifths-mobile">
-            <div className="gps ">
+            <div className="gps">
               <GpsFixed
                 className="icon is-medium"
                 style={{ fill: "white", cursor: "pointer" }}

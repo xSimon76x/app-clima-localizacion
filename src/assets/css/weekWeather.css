@@ -1,0 +1,62 @@
+/* week Weahter Css */
+
+.flexContainerWeahter {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  justify-content: center;
+  grid-gap: 2rem;
+  padding: 1vh;
+  height: auto;
+}
+
+.cardWeather {
+  background-color: #282b4d !important;
+  display: block;
+  width: 9vw;
+  height: 100%;
+}
+
+.myCard {
+  display: flex;
+  position: relative;
+  height: 150px;
+  width: 120px;
+  justify-content: center;
+  align-items: center;
+  background-color: #282b4d;
+}
+
+.tituleDay {
+  position: absolute;
+  width: auto;
+  height: auto;
+  text-align: center;
+  color: #ffffff;
+  top: 0;
+  padding-top: 1vh;
+}
+
+.imageWeather {
+  display: flex;
+  position: absolute;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.tituleDegrees {
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  width: 100%;
+  bottom: 0 !important;
+  padding-bottom: 1vh;
+}
+
+.tituleDegrees p {
+  text-align: center;
+  color: #ffffff;
+}

@@ -89,6 +89,8 @@
   position: relative;
   align-items: center;
   justify-content: center;
+  padding-top: 2vh;
+  /* background-image: url(/src//assets//images/back-image.png); */
 }
 
 .imgClimaMainWeather {
@@ -110,7 +112,7 @@
 }
 
 .gradosValor h1 {
-  font-size: 100px;
+  font-size: 14vh;
   font-family: "Merriweather";
   color: #ffffff;
 }
@@ -163,16 +165,17 @@
 
 .footer {
   background-color: transparent !important;
-  /* padding: 0rem 1rem 16rem !important; */
-  max-height: 100%;
+  padding: 0rem 0rem 0rem !important;
+  position: absolute;
+  clear: both;
+  bottom: 0 !important;
+  width: 100%;
+  height: auto;
   justify-content: center;
 }
 
 .footerContent {
-  height: 100%;
-  position: relative;
-  justify-content: center;
-  align-items: center;
+  height: auto;
 }
 
 /* .column {

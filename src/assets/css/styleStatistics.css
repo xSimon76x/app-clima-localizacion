@@ -1,26 +1,44 @@
-.containerGlobal {
-  width: 100%;
-  padding: 4vh;
-  height: 100%;
-}
+/* main Weather Css */
 
-.centrado {
-  text-align: center;
-  font-family: "Merriweather", serif;
-}
-
-p {
-  font-size: 18px;
-}
-
-.grados important {
-  align-items: flex-end;
-}
-
-.containerStatistics {
+.flexContainer {
+  display: flex;
   position: relative;
-  padding-top: 4vh;
-  padding-right: 8vw;
-  padding-left: 8vw;
-  height: 100vh;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1vh;
+}
+
+.btnGrados {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #48545f;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  color: #ffffff;
+  font-size: 3vh;
+  cursor: pointer;
+}
+
+.btnGrados:hover {
+  background-color: #ffffff;
+  color: #03192e;
+}
+
+.FlexContainerSubtitle {
+  display: flex;
+  position: relative;
+  justify-content: start;
+  align-items: center;
+  padding: 1vh;
+}
+
+.FlexContainerInfo {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
 }

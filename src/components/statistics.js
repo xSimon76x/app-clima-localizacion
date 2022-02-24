@@ -5,40 +5,38 @@ import WeekWeather from "../components/data/weekWeather";
 
 export default function Statistics() {
   return (
-    <div class="containerStatistics">
-      <div class="columns">
-        <div
-          class="column "
-          style={{
-            display: "flex",
-            justifyContent: "end",
-            lineHeight: "20px",
-          }}
-        >
-          <div style={{ paddingRight: "1vw" }}>
-            <span
-              class="icon is-medium "
-              style={{ background: "#2c2b3b", borderRadius: "50%" }}
-            >
-              <p class="has-text-weight-semibold " style={{ color: "white" }}>
-                °C
-              </p>
-            </span>
+    <div className="section">
+      <div class="container container.is-fullhd container.is-max-desktop px-6">
+        <div class="flexContainer">
+          <div style={{ paddingRight: "2vh" }}>
+            <div className="btnGrados">
+              <p class="has-text-weight-semibold">°C</p>
+            </div>
           </div>
           <div>
-            <span
-              class="icon is-medium"
-              style={{ background: "#2c2b3b", borderRadius: "50%" }}
-            >
-              <p class="has-text-weight-semibold" style={{ color: "white" }}>
-                °F
-              </p>
-            </span>
+            <div className="btnGrados">
+              <p class="has-text-weight-semibold">°F</p>
+            </div>
           </div>
         </div>
+        {/* componente de clima semanal*/}
+        <WeekWeather />
+        {/* componente de clima semanal*/}
+        <div className="FlexContainerSubtitle">
+          <h2 className="subtitle is-3 has-text-white has-text-left-desktop has-text-left-tablet has-text-left-mobile has-text-weight-semibold">
+            Todays Hightlights
+          </h2>
+        </div>
+        <div className="FlexContainerInfo"></div>
+
+        <div className="footer pt-4">
+          <p>
+            creada por{" "}
+            <span className="has-text-weight-bold">Simon Bustamante</span> -
+            devChallenges.io
+          </p>
+        </div>
       </div>
-      {/* componente de  */}
-      <WeekWeather />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function Weather() {
           <MainWeather />
         </div>
         <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
-          {/* <Statistics /> */}
+          <Statistics />
         </div>
       </div>
     </div>

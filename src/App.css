@@ -49,5 +49,8 @@
 /* styles statistics.js */
 @import url("../src/assets/css/styleStatistics.css");
 
-/* styles main-weather.js /data */
+/* styles main-weather.js */
 @import url("../src/assets/css/stylesMain-Weather.css");
+
+/* styles week Weather.js */
+@import url("../src/assets/css/weekWeather.css");
