@@ -6,42 +6,24 @@ import { useEffect, useState } from "react";
 import { Details } from "@material-ui/icons";
 
 export default function Weather() {
-  // consumo de api principal para obtener el codigo de la ciudad
-  const [ciudad, setCiudad] = useState(null);
+  //Consumo de metadata
+  const [metaciudad, setMetaciudad] = useState(null);
+
   useEffect(() => {
     ApiClima();
-    ApiMetaData();
   }, []);
   const ApiClima = async () => {
     let city = "santiago";
     let url = "/api/location/search/?query=santiago"; // + city;
     const api = await fetch(url);
     const idCity = await api.json();
-    setCiudad(idCity[0]);
-  };
 
-  //variable para obtener el codigo de la ciudad
-  let codCiudad = "";
-  if (ciudad) {
-    codCiudad = ciudad.woeid.toString();
-    console.log(codCiudad);
-  }
-
-  //Consumo de metadata
-  const [metaciudad, setMetaciudad] = useState(null);
-  //codigo de la ciudad de santiago
-  const ApiMetaData = async () => {
-    let url = "api/location/349859/"; // + codCiudad + "/"; // + city;
-    const apiMT = await fetch(url);
+    //metadata del clima
+    let urlMt = "api/location/" + idCity[0].woeid + "/"; // + city;
+    const apiMT = await fetch(urlMt);
     const climaMT = await apiMT.json();
     setMetaciudad(climaMT);
   };
-
-  if (metaciudad) {
-    console.log(metaciudad);
-  } else {
-    console.log("cargando...");
-  }
 
   return (
     <div>
@@ -51,11 +33,12 @@ export default function Weather() {
             <MainWeather objWeather={metaciudad} />
           </div>
           <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
-            <Statistics />
+            <Statistics objWeather={metaciudad} />
           </div>
         </div>
       ) : (
         // fragmen para permitir dicho codigo por sintaxis JSX
+        // Codigo de carga mientra se espera la promesa de la api
         <>
           <div>
             <div>

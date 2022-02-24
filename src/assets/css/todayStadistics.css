@@ -1,0 +1,82 @@
+.ContainerFlexMt {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
+  grid-gap: 2.95rem;
+  padding: 1vh !important;
+  height: auto;
+}
+
+.cardFlexMt {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 48%;
+  height: 200px;
+  background-color: #191d3d;
+}
+
+.tituloCardToday p {
+  color: #ffffff;
+  text-align: center;
+}
+
+.medidaCardToday {
+  display: flex;
+  position: relative;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.medidaCardToday p {
+  color: #ffffff;
+  text-align: center;
+  font-size: 6vh;
+}
+
+.infoCardToday {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  color: #ffffff;
+}
+
+.infoCardToday div {
+  position: relative;
+  width: 100%;
+}
+
+.infoCardToday span {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.infoCardToday div > div {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.progress {
+  min-width: 10vw;
+
+  margin-bottom: 0px !important;
+}
+
+.progress p {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+}

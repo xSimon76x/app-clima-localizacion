@@ -1,23 +1,24 @@
 import imgWeahter from "../../assets/icons/clima.png";
 
-export default function weekWeather() {
-  let ctd = 5;
-  const products = ["Tomorrow", "Tomorrow", "Tomorrow", "Tomorrow", "Tomorrow"];
+export default function weekWeather(props) {
+  const { objWeather } = props;
+  const weatherWeek = objWeather.consolidated_weather;
+  // console.log(weatherWeek);
 
   return (
     <div className="flexContainerWeahter">
-      {products.map((ct, index) => (
+      {weatherWeek.map((ct, index) => (
         <div className="myCard" key={index}>
-          <div className="tituleDay">Tomorrow</div>
+          <div className="tituleDay">{weatherWeek[index].applicable_date}</div>
           <div className="imageWeather">
             <img className="image is-64x64" src={imgWeahter} />
           </div>
           <div className="tituleDegrees">
             <div>
-              <p>16°C</p>
+              <p>{weatherWeek[index].max_temp.toFixed(0)}°C</p>
             </div>
             <div>
-              <p>11°C</p>
+              <p>{weatherWeek[index].min_temp.toFixed(0)}°C</p>
             </div>
           </div>
         </div>

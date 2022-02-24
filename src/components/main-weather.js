@@ -1,14 +1,11 @@
 import GpsFixed from "@material-ui/icons/GpsFixed";
 import LocationOn from "@material-ui/icons/LocationOn";
-import { useEffect, useState } from "react";
 import imgWeather from "../assets/icons/clima.png";
 
 export default function MainWeather(props) {
-  // obtener variable definida en la page, que relaciona al objeto de datos
+  const { objWeather } = props;
+  const weatherToday = objWeather.consolidated_weather[0];
 
-  // if (metaciudad) {
-  //   console.log(metaciudad.consolidated_weather[0]);
-  // }
   return (
     <div className="section">
       <div className="container container.is-fullhd container.is-max-desktop">
@@ -37,7 +34,7 @@ export default function MainWeather(props) {
         </div>
         <div className="columns is-desktop is-mobile is-gapless">
           <div className="gradosValor column is-two-thirds">
-            <h1>15</h1>
+            <h1>{weatherToday.the_temp.toFixed(0)}</h1>
           </div>
           <div className="gradosMedida column">
             <h2 className="grados is-size-3 ">°C</h2>
@@ -46,16 +43,11 @@ export default function MainWeather(props) {
         <div className="columns is-desktop is-mobile is-gapless">
           <div className="column ">
             <div className="containerWeather">
-              <p className="typeWeather">Shower</p>
+              <p className="typeWeather">{weatherToday.weather_state_name}</p>
             </div>
           </div>
         </div>
-        {/*  */}
-        {/* <div className="columns">
-          <div className="column is-full">
-            
-          </div>
-        </div> */}
+
         <footer className="footer">
           <div className="footerContent">
             <div className="columns is-desktop is-mobile is-gapless">
@@ -64,7 +56,7 @@ export default function MainWeather(props) {
                 style={{ textAlign: "end", opacity: "0.4" }}
               >
                 <div className="tiempoDescripcion">
-                  <p>Today | Fri, 5 Jun </p>
+                  <p>Today | {weatherToday.applicable_date} </p>
                 </div>
               </div>
             </div>
@@ -73,7 +65,7 @@ export default function MainWeather(props) {
               <div className="column" style={{ opacity: "0.4" }}>
                 <div className="ubicacion">
                   <LocationOn style={{ height: "20px", color: "white" }} />
-                  <p> - </p>
+                  <p> {objWeather.title} </p>
                 </div>
               </div>
             </div>
