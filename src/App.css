@@ -54,3 +54,6 @@
 
 /* styles week Weather.js */
 @import url("../src/assets/css/weekWeather.css");
+
+/* styles loadingWeather.js */
+@import url("../src/assets/css/loadingWeather.css");

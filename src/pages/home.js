@@ -1,18 +1,69 @@
 import { colors } from "@material-ui/core";
 import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
+import LoadingWeather from "../components/loadingWeather.js";
+import { useEffect, useState } from "react";
+import { Details } from "@material-ui/icons";
 
 export default function Weather() {
+  // consumo de api principal para obtener el codigo de la ciudad
+  const [ciudad, setCiudad] = useState(null);
+  useEffect(() => {
+    ApiClima();
+    ApiMetaData();
+  }, []);
+  const ApiClima = async () => {
+    let city = "santiago";
+    let url = "/api/location/search/?query=santiago"; // + city;
+    const api = await fetch(url);
+    const idCity = await api.json();
+    setCiudad(idCity[0]);
+  };
+
+  //variable para obtener el codigo de la ciudad
+  let codCiudad = "";
+  if (ciudad) {
+    codCiudad = ciudad.woeid.toString();
+    console.log(codCiudad);
+  }
+
+  //Consumo de metadata
+  const [metaciudad, setMetaciudad] = useState(null);
+  //codigo de la ciudad de santiago
+  const ApiMetaData = async () => {
+    let url = "api/location/349859/"; // + codCiudad + "/"; // + city;
+    const apiMT = await fetch(url);
+    const climaMT = await apiMT.json();
+    setMetaciudad(climaMT);
+  };
+
+  if (metaciudad) {
+    console.log(metaciudad);
+  } else {
+    console.log("cargando...");
+  }
+
   return (
     <div>
-      <div className="Content columns is-gapless is-mobile is-desktop">
-        <div className="column leftContent">
-          <MainWeather />
+      {metaciudad ? (
+        <div className="Content columns is-gapless is-mobile is-desktop">
+          <div className="column leftContent">
+            <MainWeather objWeather={metaciudad} />
+          </div>
+          <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
+            <Statistics />
+          </div>
         </div>
-        <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
-          <Statistics />
-        </div>
-      </div>
+      ) : (
+        // fragmen para permitir dicho codigo por sintaxis JSX
+        <>
+          <div>
+            <div>
+              <LoadingWeather />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

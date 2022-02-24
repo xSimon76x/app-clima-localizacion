@@ -1,25 +1,20 @@
 import GpsFixed from "@material-ui/icons/GpsFixed";
 import LocationOn from "@material-ui/icons/LocationOn";
+import { useEffect, useState } from "react";
 import imgWeather from "../assets/icons/clima.png";
-import { useState } from "react";
 
-export default function MainWeather() {
-  const [ciudad, setCiudad] = useState(null);
+export default function MainWeather(props) {
+  // obtener variable definida en la page, que relaciona al objeto de datos
 
-  const ApiClima = async () => {
-    let city = "santiago";
-    let url = "/api/location/search/?query=santiago"; // + city;
-    const api = await fetch(url);
-    const idCity = await api.json();
-    setCiudad(idCity[0]);
-  };
-  console.log(ciudad);
+  // if (metaciudad) {
+  //   console.log(metaciudad.consolidated_weather[0]);
+  // }
   return (
     <div className="section">
       <div className="container container.is-fullhd container.is-max-desktop">
         <div className="columns is-mobile is-desktop ">
           <div className="column">
-            <div className="btnBuscar" onClick={ApiClima}>
+            <div className="btnBuscar">
               <p style={{ color: "white" }}>Search for places</p>
             </div>
           </div>
@@ -78,7 +73,7 @@ export default function MainWeather() {
               <div className="column" style={{ opacity: "0.4" }}>
                 <div className="ubicacion">
                   <LocationOn style={{ height: "20px", color: "white" }} />
-                  <p>Helsinki</p>
+                  <p> - </p>
                 </div>
               </div>
             </div>

@@ -4,6 +4,7 @@ import "bulma/css/bulma.min.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";
 import Home from "./pages/home";
+import { useState } from "react";
 
 function App() {
   // var height = $(window).height();
