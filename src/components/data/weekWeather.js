@@ -5,12 +5,12 @@ export default function weekWeather() {
   const products = ["Tomorrow", "Tomorrow", "Tomorrow", "Tomorrow", "Tomorrow"];
 
   return (
-    <div class="flexContainerWeahter">
+    <div className="flexContainerWeahter">
       {products.map((ct, index) => (
         <div className="myCard" key={index}>
           <div className="tituleDay">Tomorrow</div>
           <div className="imageWeather">
-            <img class="image is-64x64" src={imgWeahter} />
+            <img className="image is-64x64" src={imgWeahter} />
           </div>
           <div className="tituleDegrees">
             <div>

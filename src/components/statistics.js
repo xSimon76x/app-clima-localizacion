@@ -6,16 +6,16 @@ import WeekWeather from "../components/data/weekWeather";
 export default function Statistics() {
   return (
     <div className="section">
-      <div class="container container.is-fullhd container.is-max-desktop px-6">
-        <div class="flexContainer">
+      <div className="container container.is-fullhd container.is-max-desktop px-6">
+        <div className="flexContainer">
           <div style={{ paddingRight: "2vh" }}>
             <div className="btnGrados">
-              <p class="has-text-weight-semibold">°C</p>
+              <p className="has-text-weight-semibold">°C</p>
             </div>
           </div>
           <div>
             <div className="btnGrados">
-              <p class="has-text-weight-semibold">°F</p>
+              <p className="has-text-weight-semibold">°F</p>
             </div>
           </div>
         </div>

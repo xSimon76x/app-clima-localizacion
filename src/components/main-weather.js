@@ -1,14 +1,25 @@
 import GpsFixed from "@material-ui/icons/GpsFixed";
 import LocationOn from "@material-ui/icons/LocationOn";
 import imgWeather from "../assets/icons/clima.png";
+import { useState } from "react";
 
 export default function MainWeather() {
+  const [ciudad, setCiudad] = useState(null);
+
+  const ApiClima = async () => {
+    let city = "santiago";
+    let url = "/api/location/search/?query=santiago"; // + city;
+    const api = await fetch(url);
+    const idCity = await api.json();
+    setCiudad(idCity[0]);
+  };
+  console.log(ciudad);
   return (
     <div className="section">
       <div className="container container.is-fullhd container.is-max-desktop">
         <div className="columns is-mobile is-desktop ">
           <div className="column">
-            <div className="btnBuscar">
+            <div className="btnBuscar" onClick={ApiClima}>
               <p style={{ color: "white" }}>Search for places</p>
             </div>
           </div>
@@ -77,3 +88,13 @@ export default function MainWeather() {
     </div>
   );
 }
+
+// codigo antes añadido al fetch de la url, al parece no tiene mucho efecto
+// , {
+//   mode: "cors",
+//   headers: {
+//     "Access-Control-Allow-Origin": "https://www.metaweather.com/",
+//     "Access-Control-Allow-Methods": "OPTIONS,POST,GET",
+//     "Access-Control-Allow-Headers": "Content-Type",
+//   },
+// }
