@@ -11,6 +11,13 @@
   height: auto;
 }
 
+.imgCard {
+  background: url("../icons/clima.png") !important;
+  position: relative;
+  display: flex;
+  width: 64px;
+  height: 64px;
+}
 /* .cardWeather {
   background-color: #282b4d !important;
   display: block;
