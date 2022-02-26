@@ -14,7 +14,7 @@ export default function Weather() {
   }, []);
   const ApiClima = async () => {
     //let city = "santiago";
-    let url = "/api/location/search/?query=santiago"; // + city;
+    let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
     const api = await fetch(url, {
       mode: "no-cors",
       cache: "no-cache",
