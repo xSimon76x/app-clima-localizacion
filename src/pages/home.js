@@ -16,7 +16,7 @@ export default function Weather() {
     //let city = "santiago";
     let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
     const api = await fetch(url, {
-      mode: "cors",
+      mode: "no-cors",
       cache: "no-cache",
       credentials: "omit",
       headers: {
