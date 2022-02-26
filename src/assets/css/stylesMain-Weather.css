@@ -46,7 +46,7 @@
 .btnWeather {
   display: flex !important;
   position: relative !important;
-  justify-content: end !important;
+  justify-content: flex-end !important;
   align-items: center !important;
 }
 
@@ -121,7 +121,7 @@
   display: flex !important;
   position: relative;
   align-items: flex-end;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .containerWeather {

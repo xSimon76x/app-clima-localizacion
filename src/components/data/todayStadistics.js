@@ -37,7 +37,7 @@ export default function todayStadistics(props) {
               <h3>100</h3>
             </div>
             <progress
-              class="progress is-warning"
+              className="progress is-warning"
               value={weatherToday.humidity}
               max="100"
             ></progress>
