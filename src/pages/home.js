@@ -14,12 +14,12 @@ export default function Weather() {
   }, []);
   const ApiClima = async () => {
     //let city = "santiago";
-    let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
+    let url = "/api/location/search/?query=santiago"; // + city;
     const api = await fetch(url);
     const idCity = await api.json();
 
     //metadata del clima
-    let urlMt = "https://www.metaweather.com/api/location/" + idCity[0].woeid + "/"; // + city;
+    let urlMt = "/api/location/" + idCity[0].woeid + "/"; // + city;
     const apiMT = await fetch(urlMt);
     const climaMT = await apiMT.json();
     setMetaciudad(climaMT);
