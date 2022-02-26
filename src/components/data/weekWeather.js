@@ -1,4 +1,5 @@
-import imgWeahter from "../../assets/icons/clima.png";
+// import imgWeahter from "../../assets/icons/clima.png";
+import imgWeahter from "./clima.png";
 
 export default function weekWeather(props) {
   const { objWeather } = props;
