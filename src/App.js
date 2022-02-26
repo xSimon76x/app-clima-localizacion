@@ -1,10 +1,10 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import "bulma/css/bulma.min.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //link
 import React from "react";
 import Home from "./pages/home";
-import { useState } from "react";
+// import { useState } from "react";
 
 function App() {
   // var height = $(window).height();

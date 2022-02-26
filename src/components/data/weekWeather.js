@@ -12,7 +12,7 @@ export default function weekWeather(props) {
         <div className="myCard" key={index}>
           <div className="tituleDay">{weatherWeek[index].applicable_date}</div>
           <div className="imageWeather">
-            <img className="image is-64x64" src={imgWeahter} />
+            <img className="image is-64x64" src={imgWeahter} alt="imgClima" />
           </div>
           <div className="tituleDegrees">
             <div>

@@ -28,7 +28,11 @@ export default function MainWeather(props) {
         <div className="columns is-mobile is-desktop">
           <div className="column is-full">
             <div className="imgContenido ">
-              <img className="imgClimaMainWeather" src={imgWeather}></img>
+              <img
+                className="imgClimaMainWeather"
+                src={imgWeather}
+                alt="imgClimaActual"
+              ></img>
             </div>
           </div>
         </div>

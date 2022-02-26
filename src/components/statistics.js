@@ -1,11 +1,11 @@
-import celcius from "@material-ui/icons/";
+//import celcius from "@material-ui/icons/";
 // components
 import WeekWeather from "../components/data/weekWeather";
 import TodayStadistics from "./data/todayStadistics";
 
 export default function Statistics(props) {
   const { objWeather } = props;
-  const weatherToday = objWeather.consolidated_weather[0];
+  //const weatherToday = objWeather.consolidated_weather[0];
 
   return (
     <div className="section">

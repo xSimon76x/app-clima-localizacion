@@ -1,9 +1,9 @@
-import { colors } from "@material-ui/core";
+//import { colors } from "@material-ui/core";
 import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
 import LoadingWeather from "../components/loadingWeather.js";
 import { useEffect, useState } from "react";
-import { Details } from "@material-ui/icons";
+//import { Details } from "@material-ui/icons";
 
 export default function Weather() {
   //Consumo de metadata
@@ -13,7 +13,7 @@ export default function Weather() {
     ApiClima();
   }, []);
   const ApiClima = async () => {
-    let city = "santiago";
+    //let city = "santiago";
     let url = "/api/location/search/?query=santiago"; // + city;
     const api = await fetch(url);
     const idCity = await api.json();
@@ -49,10 +49,6 @@ export default function Weather() {
       )}
     </div>
   );
-}
-
-function gps() {
-  console.log("no se encontro la geolocalizacion");
 }
 
 // $(document).ready(function () {
