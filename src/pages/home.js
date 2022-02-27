@@ -16,8 +16,8 @@ export default function Weather() {
     //let city = "santiago";
     const headers = new Headers();
     headers.set("Content-Type", "application/json");
-    headers.set("access-control-allow-credentials", "true");
-    headers.set("access-control-allow-origin", "*");
+    headers.set("Access-Control-Allow-Credentials", "true");
+    headers.set("Access-Control-Allow-Origin", "*");
 
     //
     // api = await fetch ("/api/location/search/?query=santiago"); // local
@@ -29,11 +29,13 @@ export default function Weather() {
         credentials: "omit",
         headers,
       }
-    );
+    ).catch(function (err) {
+      console.error(err);
+    });
 
     const idCity = await JSON.parse(api); // host
     //const idCity = await  api.json(); local
-    console.log(idCity);
+    console.log(idCity[0]);
     //metadata del clima
     let urlMt =
       "https://www.metaweather.com/api/location/" + idCity[0].woeid + "/"; // host
