@@ -31,7 +31,7 @@ export default function Weather() {
       }
     );
 
-    const idCity = await JSON.stringify(api); // host
+    const idCity = await JSON.parse(api); // host
     //const idCity = await  api.json(); local
     console.log(idCity);
     //metadata del clima
