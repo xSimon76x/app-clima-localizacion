@@ -38,7 +38,12 @@ export default function Weather() {
     let urlMt =
       "https://www.metaweather.com/api/location/" + idCity[0].woeid + "/"; // host
     //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
-    const apiMT = await fetch(urlMt);
+    const apiMT = await fetch(urlMt, {
+      mode: "no-cors",
+      cache: "no-cache",
+      credentials: "omit",
+      headers,
+    });
     // const climaMT = await apiMT.json(); local
     const climaMT = await JSON.stringify(apiMT);
 
