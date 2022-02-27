@@ -3,6 +3,7 @@ import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
 import LoadingWeather from "../components/loadingWeather.js";
 import { useEffect, useState } from "react";
+
 //import { Details } from "@material-ui/icons";
 
 export default function Weather() {
@@ -13,6 +14,7 @@ export default function Weather() {
     ApiClima();
   }, []);
   const ApiClima = async () => {
+    // try {
     //let city = "santiago";
     const headers = new Headers();
     headers.set("Content-Type", "application/json");
@@ -21,24 +23,20 @@ export default function Weather() {
 
     //
     // api = await fetch ("/api/location/search/?query=santiago"); // local
-    const api = await fetch(
-      "https://www.metaweather.com/api/location/search/?query=santiago",
-      {
-        mode: "no-cors",
-        cache: "no-cache",
-        credentials: "omit",
-        headers,
-      }
-    ).catch(function (err) {
+    const api = await fetch("/api/location/search/?query=santiago", {
+      mode: "no-cors",
+      cache: "no-cache",
+      credentials: "omit",
+      headers,
+    }).catch(function (err) {
       console.error(err);
     });
 
-    const idCity = await JSON.parse(JSON.stringify(api)); // host
+    const idCity = await api.json(); // host
     //const idCity = await  api.json(); local
     console.log(idCity[0]);
     //metadata del clima
-    let urlMt =
-      "https://www.metaweather.com/api/location/" + idCity[0].woeid + "/"; // host
+    let urlMt = "/api/location/" + idCity[0].woeid + "/"; // host
     //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
     const apiMT = await fetch(urlMt, {
       mode: "no-cors",
@@ -47,11 +45,11 @@ export default function Weather() {
       headers,
     });
     // const climaMT = await apiMT.json(); local
-    const climaMT = await JSON.stringify(apiMT);
+    const climaMT = await apiMT.json();
 
     setMetaciudad(climaMT);
-    // } catch (error) {
-    //   console.error(error);
+    // } catch (err) {
+    //   console.error(err);
     // }
   };
 
