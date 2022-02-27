@@ -14,19 +14,24 @@ export default function Weather() {
   }, []);
   const ApiClima = async () => {
     //let city = "santiago";
-    let url = "/api/location/search/?query=santiago"; // + city;
-    const api = await fetch(url, {
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "omit",
-    });
-    const idCity = await api.json();
-    // console.log(idCity);
-    //metadata del clima
-    let urlMt = "/api/location/" + idCity[0].woeid + "/"; // + city;
-    const apiMT = await fetch(urlMt);
-    const climaMT = await apiMT.json();
-    setMetaciudad(climaMT);
+
+    try {
+      let url = "/api/location/search/?query=santiago"; // + city;
+      const api = await fetch(url, {
+        mode: "no-cors",
+        cache: "no-cache",
+        credentials: "omit",
+      });
+      const idCity = await api.json();
+      // console.log(idCity);
+      //metadata del clima
+      let urlMt = "/api/location/" + idCity[0].woeid + "/"; // + city;
+      const apiMT = await fetch(urlMt);
+      const climaMT = await apiMT.json();
+      setMetaciudad(climaMT);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
