@@ -16,12 +16,15 @@ export default function Weather() {
     //let city = "santiago";
 
     // try {
-    let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
-    const api = await fetch(url, {
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "omit",
-    });
+    //let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
+    const api = await fetch(
+      "https://www.metaweather.com/api/location/search/?query=santiago",
+      {
+        mode: "no-cors",
+        cache: "no-cache",
+        credentials: "omit",
+      }
+    );
     const idCity = await api.json();
     console.log(idCity);
     //metadata del clima
