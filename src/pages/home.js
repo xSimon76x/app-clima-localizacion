@@ -25,7 +25,8 @@ export default function Weather() {
         credentials: "omit",
       }
     );
-    const idCity = await api.json();
+
+    const idCity = await JSON.stringify(api);
     console.log(idCity);
     //metadata del clima
     let urlMt = "/api/location/" + idCity[0].woeid + "/"; // + city;
