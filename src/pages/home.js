@@ -14,6 +14,10 @@ export default function Weather() {
   }, []);
   const ApiClima = async () => {
     //let city = "santiago";
+    const headers = new Headers();
+    headers.set("Content-Type", "application/json");
+    headers.set("access-control-allow-credentials", "true");
+    headers.set("access-control-allow-origin", "*");
 
     // try {
     //let url = "https://www.metaweather.com/api/location/search/?query=santiago"; // + city;
@@ -23,6 +27,7 @@ export default function Weather() {
         mode: "no-cors",
         cache: "no-cache",
         credentials: "omit",
+        headers,
       }
     );
 
