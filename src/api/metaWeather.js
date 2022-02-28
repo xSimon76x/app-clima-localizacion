@@ -6,7 +6,7 @@
   var open = XMLHttpRequest.prototype.open;
   XMLHttpRequest.prototype.open = function () {
     var args = slice.call(arguments);
-    var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+    var targetOrigin = /^https?:([^]+)/i.exec(args[1]);
     if (
       targetOrigin &&
       targetOrigin[0].toLowerCase() !== origin &&
