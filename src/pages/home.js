@@ -3,55 +3,77 @@ import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
 import LoadingWeather from "../components/loadingWeather.js";
 import { useEffect, useState } from "react";
-
+import axios from "axios";
 //import { Details } from "@material-ui/icons";
 
 export default function Weather() {
+  const [idciudad, setIdciudad] = useState(["null"]);
   //Consumo de metadata
+  let ciudad = `london`;
   const [metaciudad, setMetaciudad] = useState(null);
-
+  const headers = new Headers();
+  headers.set("Content-Type", "application/json");
+  headers.set("Access-Control-Allow-Credentials", "true");
+  headers.set("Access-Control-Allow-Origin", "*");
   useEffect(() => {
-    ApiClima();
-  }, []);
-  const ApiClima = async () => {
-    // try {
-    //let city = "santiago";
-    const headers = new Headers();
-    headers.set("Content-Type", "application/json");
-    headers.set("Access-Control-Allow-Credentials", "true");
-    headers.set("Access-Control-Allow-Origin", "*");
+    axios
+      .get(
+        `https://www.metaweather.com/api/location/search/?query=${ciudad}
+    `
+      )
+      .then((res) => {
+        setIdciudad(res.data[0].woeid);
+        console.log(res.data[0].woeid);
+      });
+    axios
+      .get(
+        `https://www.metaweather.com/api/location/${idciudad}/
+    `
+      )
+      .then((res) => {
+        setMetaciudad(res.data);
+        console.log(res.data);
+      });
+  }, [idciudad]);
 
-    //
-    // api = await fetch ("/api/location/search/?query=santiago"); // local
-    const api = await fetch("/api/location/search/?query=santiago", {
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "omit",
-      headers,
-    }).catch(function (err) {
-      console.error(err);
-    });
+  // const ApiClima = async () => {
+  //   // try {
+  //   //let city = "santiago";
 
-    const idCity = await api.json(); // host
-    //const idCity = await  api.json(); local
-    console.log(idCity[0]);
-    //metadata del clima
-    let urlMt = "/api/location/" + idCity[0].woeid + "/"; // host
-    //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
-    const apiMT = await fetch(urlMt, {
-      mode: "no-cors",
-      cache: "no-cache",
-      credentials: "omit",
-      headers,
-    });
-    // const climaMT = await apiMT.json(); local
-    const climaMT = await apiMT.json();
+  //   //
+  //   // api = await fetch ("/api/location/search/?query=santiago"); // local
+  //   const api = await fetch(
+  //     "https://www.metaweather.com/api/location/search/?query=london",
+  //     {
+  //       mode: "no-cors",
+  //       cache: "no-cache",
+  //       credentials: "omit",
+  //       headers,
+  //     }
+  //   ).catch(function (err) {
+  //     console.error(err);
+  //   });
 
-    setMetaciudad(climaMT);
-    // } catch (err) {
-    //   console.error(err);
-    // }
-  };
+  //   const idCity = await api.json(); // host
+  //   //const idCity = await  api.json(); local
+
+  //   //metadata del clima
+  //   let urlMt = "/api/location/" + idCity[0].woeid + "/"; // host
+  //   //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
+  //   const apiMT = await fetch(urlMt, {
+  //     mode: "no-cors",
+  //     cache: "no-cache",
+  //     credentials: "omit",
+  //     headers,
+  //   });
+  //   // const climaMT = await apiMT.json(); local
+  //   const climaMT = await apiMT.json();
+
+  //   setMetaciudad(climaMT);
+  //   // } catch (err) {
+  //   //   console.error(err);
+  //   // }
+  // };
 
   return (
     <div>
@@ -78,74 +100,3 @@ export default function Weather() {
     </div>
   );
 }
-
-// $(document).ready(function () {
-//   //Click al boton para pedir permisos
-//   $("#pedirvan").click(function () {
-//     //Si el navegador soporta geolocalizacion
-//     if (!!navigator.geolocation) {
-//       //Pedimos los datos de geolocalizacion al navegador
-//       navigator.geolocation.getCurrentPosition(
-//         //Si el navegador entrega los datos de geolocalizacion los imprimimos
-//         function (position) {
-//           window.alert("nav permitido");
-//           $("#nlat").text(position.coords.latitude);
-//           $("#nlon").text(position.coords.longitude);
-//         },
-//         //Si no los entrega manda un alerta de error
-//         function () {
-//           window.alert("nav no permitido");
-//         }
-//       );
-//     }
-//   });
-// });
-
-/**
- * Esta función le permite modificar una promesa JS añadiendo algunas propiedades de estado.
- * basado en: http://stackoverflow.com/questions/21485545/is-there-a-way-to-tell-if-an-es6-promise-is-fulfilled-rejected-resolved
- * Pero modificado de acuerdo con las especificaciones de las promesas : https://promisesaplus.com/
- */
-//  function MakeQuerablePromise(promise) {
-//   // No modifique ninguna promesa que ya haya sido modificada.
-//   if (promise.isFulfilled) return promise;
-
-//   // Establecer estado inicial
-//   var isPending = true;
-//   var isRejected = false;
-//   var isFulfilled = false;
-
-//   // Observe la promesa, guardando el cumplimiento en un alcance de cierre.
-//   var result = promise.then(
-//     function (v) {
-//       isFulfilled = true;
-//       isPending = false;
-//       return v;
-//     },
-//     function (e) {
-//       isRejected = true;
-//       isPending = false;
-//       throw e;
-//     }
-//   );
-
-//   result.isFulfilled = function () {
-//     return isFulfilled;
-//   };
-//   result.isPending = function () {
-//     return isPending;
-//   };
-//   result.isRejected = function () {
-//     return isRejected;
-//   };
-//   return result;
-// }
-
-// var myPromise = MakeQuerablePromise(ApiClima("santiago"));
-// myPromise.then(function obtDatos(data) {
-//   console.log(data); // "Yeah !"
-//   return data;
-//   console.log("Final fulfilled:", myPromise.isFulfilled());
-//   console.log("Final rejected:", myPromise.isRejected());
-//   console.log("Final pending:", myPromise.isPending());
-// });

@@ -3,7 +3,7 @@ import ArrowCircleDownIcon from "@material-ui/icons/ArrowDropDownCircle";
 export default function todayStadistics(props) {
   const { objWeather } = props;
   const weatherToday = objWeather.consolidated_weather[0];
-  console.log(weatherToday);
+  //console.log(weatherToday);
   return (
     <div className="ContainerFlexMt ">
       {/* Wind status */}

@@ -1,9 +1,0 @@
-/api/*  https://www.metaweather.com/api/:splat  200
-
-
-[[redirects]]
-  from = "api/location/search/?query=santiago"
-  to = "https://www.metaweather.com/api/location/search/?query=santiago"
-  status = 200
-  force = true
-
