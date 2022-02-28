@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 //import { Details } from "@material-ui/icons";
 
-export default function Weather() {
+export default function Weather(props) {
+  const { apiFunction } = props;
+  console.log(apiFunction);
   const [idciudad, setIdciudad] = useState(["null"]);
   //Consumo de metadata
   let ciudad = `london`;
@@ -105,21 +107,3 @@ export default function Weather() {
     </div>
   );
 }
-
-let cors_api_url = "https://cors-anywhere.herokuapp.com/";
-let ciudad = "santiago";
-let urlField = "https://www.metaweather.com/api/location/search/?query=san";
-let opt = {
-  method: "GET",
-  url: urlField,
-};
-let x = new XMLHttpRequest();
-x.open(opt.method, cors_api_url + opt.url);
-x.onload = x.onerror = function () {
-  let respuesta = x.responseText;
-  console.log(JSON.parse(respuesta));
-};
-if (/^POST/i.test(opt.method)) {
-  x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-}
-x.send(opt.data);
