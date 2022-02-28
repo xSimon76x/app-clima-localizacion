@@ -36,6 +36,7 @@ export default function Weather() {
       });
   }, [idciudad]);
 
+  console.log(metaciudad);
   // const ApiClima = async () => {
   //   // try {
   //   //let city = "santiago";
