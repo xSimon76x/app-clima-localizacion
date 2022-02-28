@@ -15,68 +15,70 @@ export default function Weather() {
   headers.set("Content-Type", "application/json");
   headers.set("Access-Control-Allow-Credentials", "true");
   headers.set("Access-Control-Allow-Origin", "*");
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://www.metaweather.com/api/location/search/?query=${ciudad}
+  //   `
+  //     )
+  //     .then((res) => {
+  //       setIdciudad(res.data[0].woeid);
+  //       // console.log(res.data[0].woeid);
+  //     });
+  //   axios
+  //     .get(
+  //       `https://www.metaweather.com/api/location/${idciudad}/
+  //   `
+  //     )
+  //     .then((res) => {
+  //       setMetaciudad(res.data);
+  //       // console.log(res.data);
+  //     });
+  // }, [idciudad, ciudad]);
+  // if (metaciudad) {
+  //   console.log(metaciudad);
+  // }
+
   useEffect(() => {
-    axios
-      .get(
-        `https://www.metaweather.com/api/location/search/?query=${ciudad}
-    `
-      )
-      .then((res) => {
-        setIdciudad(res.data[0].woeid);
-        console.log(res.data[0].woeid);
-      });
-    axios
-      .get(
-        `https://www.metaweather.com/api/location/${idciudad}/
-    `
-      )
-      .then((res) => {
-        setMetaciudad(res.data);
-        console.log(res.data);
-      });
-  }, [idciudad, ciudad]);
-  if (metaciudad) {
-    console.log(metaciudad);
-  }
+    ApiClima();
+  }, []);
 
-  // const ApiClima = async () => {
-  //   // try {
-  //   //let city = "santiago";
+  const ApiClima = async () => {
+    // try {
+    //let city = "santiago";
 
-  //   //
-  //   // api = await fetch ("/api/location/search/?query=santiago"); // local
-  //   const api = await fetch(
-  //     "https://www.metaweather.com/api/location/search/?query=london",
-  //     {
-  //       mode: "no-cors",
-  //       cache: "no-cache",
-  //       credentials: "omit",
-  //       headers,
-  //     }
-  //   ).catch(function (err) {
-  //     console.error(err);
-  //   });
+    //
+    // api = await fetch ("/api/location/search/?query=santiago"); // local
+    const api = await fetch("/api/location/search/?query=london", {
+      mode: "no-cors",
+      cache: "no-cache",
+      credentials: "omit",
+      headers,
+    }).catch(function (err) {
+      console.error(err);
+    });
 
-  //   const idCity = await api.json(); // host
-  //   //const idCity = await  api.json(); local
+    const idCity = await api.json(); // host
 
-  //   //metadata del clima
-  //   let urlMt = "/api/location/" + idCity[0].woeid + "/"; // host
-  //   //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
-  //   const apiMT = await fetch(urlMt, {
-  //     mode: "no-cors",
-  //     cache: "no-cache",
-  //     credentials: "omit",
-  //     headers,
-  //   });
-  //   // const climaMT = await apiMT.json(); local
-  //   const climaMT = await apiMT.json();
+    //const idCity = await  api.json(); local
 
-  //   setMetaciudad(climaMT);
-  //   // } catch (err) {
-  //   //   console.error(err);
-  //   // }
-  // };
+    //metadata del clima
+    let urlMt = "/api/location/" + idCity[0].woeid + "/"; // host
+    //let urlMt = "/api/location/" + idCity[0].woeid + "/"; // local
+    const apiMT = await fetch(urlMt, {
+      mode: "no-cors",
+      cache: "no-cache",
+      credentials: "omit",
+      headers,
+    });
+    // const climaMT = await apiMT.json(); local
+    const climaMT = await apiMT.json();
+
+    setMetaciudad(climaMT);
+    // } catch (err) {
+    //   console.error(err);
+    // }
+  };
 
   return (
     <div>
@@ -103,3 +105,21 @@ export default function Weather() {
     </div>
   );
 }
+
+let cors_api_url = "https://cors-anywhere.herokuapp.com/";
+let ciudad = "santiago";
+let urlField = "https://www.metaweather.com/api/location/search/?query=san";
+let opt = {
+  method: "GET",
+  url: urlField,
+};
+let x = new XMLHttpRequest();
+x.open(opt.method, cors_api_url + opt.url);
+x.onload = x.onerror = function () {
+  let respuesta = x.responseText;
+  console.log(JSON.parse(respuesta));
+};
+if (/^POST/i.test(opt.method)) {
+  x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+}
+x.send(opt.data);

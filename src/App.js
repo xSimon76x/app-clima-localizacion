@@ -2,10 +2,8 @@
 import "./App.css";
 import "bulma/css/bulma.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //link
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/home";
-import metaWeather from "./api/metaWeather";
-// import { useState } from "react";
 
 function App() {
   return (
