@@ -12,7 +12,7 @@ x.open(opt.method, cors_api_url + opt.url);
 x.onload = x.onerror = function expApi() {
   let respuesta = x.responseText;
   objRespuesta = JSON.parse(respuesta)[0];
-  console.log(objRespuesta);
+  //console.log(objRespuesta);
   //let objRespuesta = JSON.parse(respuesta)[0];
 };
 

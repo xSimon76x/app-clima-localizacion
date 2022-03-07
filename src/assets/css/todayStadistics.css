@@ -2,10 +2,12 @@
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
   grid-gap: 2.95rem;
-  padding: 1vh !important;
+  padding-top: 4vh;
+  padding-bottom: 6vh;
   height: auto;
 }
 
@@ -36,7 +38,7 @@
 .medidaCardToday p {
   color: #ffffff;
   text-align: center;
-  font-size: 6vh;
+  font-size: 4vh;
 }
 
 .infoCardToday {

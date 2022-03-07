@@ -8,6 +8,7 @@ export default function weekWeather(props) {
 
   return (
     <div className="flexContainerWeahter">
+
       {weatherWeek.map((ct, index) => (
         <div className="myCard" key={index}>
           <div className="tituleDay">{weatherWeek[index].applicable_date}</div>
@@ -24,6 +25,8 @@ export default function weekWeather(props) {
           </div>
         </div>
       ))}
+
+
     </div>
   );
 }

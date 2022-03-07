@@ -42,3 +42,13 @@
   align-items: center;
   padding: 1vh;
 }
+
+.CustomFooter {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+}

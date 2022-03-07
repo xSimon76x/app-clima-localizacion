@@ -17,30 +17,6 @@ export default function Weather(props) {
   headers.set("Content-Type", "application/json");
   headers.set("Access-Control-Allow-Credentials", "true");
   headers.set("Access-Control-Allow-Origin", "*");
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `https://www.metaweather.com/api/location/search/?query=${ciudad}
-  //   `
-  //     )
-  //     .then((res) => {
-  //       setIdciudad(res.data[0].woeid);
-  //       // console.log(res.data[0].woeid);
-  //     });
-  //   axios
-  //     .get(
-  //       `https://www.metaweather.com/api/location/${idciudad}/
-  //   `
-  //     )
-  //     .then((res) => {
-  //       setMetaciudad(res.data);
-  //       // console.log(res.data);
-  //     });
-  // }, [idciudad, ciudad]);
-  // if (metaciudad) {
-  //   console.log(metaciudad);
-  // }
-
   useEffect(() => {
     ApiClima();
   }, []);
@@ -82,12 +58,16 @@ export default function Weather(props) {
     // }
   };
 
+  const cambioTipoGrados = () => {
+    console.log("first");
+  }
+
   return (
     <div>
       {metaciudad ? (
         <div className="Content columns is-gapless is-mobile is-desktop">
           <div className="column leftContent">
-            <MainWeather objWeather={metaciudad} />
+            <MainWeather objWeather={metaciudad} cambioTipoGrados={cambioTipoGrados()} />
           </div>
           <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
             <Statistics objWeather={metaciudad} />
