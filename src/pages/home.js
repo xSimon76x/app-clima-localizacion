@@ -9,11 +9,15 @@ import axios from "axios";
 export default function Weather(props) {
   const { apiFunction } = props;
   console.log(apiFunction);
-  const [idciudad, setIdciudad] = useState(["null"]);
-  //Consumo de metadata
+  const [currentTypeGrade, setCurrentTypeGrade] = useState({ celcius: null, fahrenheit: null });
+  const [listGradesDay, setListGradesDay] = useState({ celcius: null, fahrenheit: null });
   let ciudad = `london`;
   const [metaciudad, setMetaciudad] = useState(null);
   const headers = new Headers();
+
+
+
+
   headers.set("Content-Type", "application/json");
   headers.set("Access-Control-Allow-Credentials", "true");
   headers.set("Access-Control-Allow-Origin", "*");
@@ -58,8 +62,59 @@ export default function Weather(props) {
     // }
   };
 
-  const cambioTipoGrados = () => {
-    console.log("first");
+  const cambioTipoFahrenheit = (objWeather, celcius, celciusListDay) => {
+    let currentTempApi = objWeather.consolidated_weather[0].the_temp;
+    let celciusCambio = 0;
+    let tempMinMax = objWeather.consolidated_weather;
+    let currentTempMinDay = 0;
+    let currentTempMaxDay = 0;
+    let index = 0;
+    let listMinMaxTempDay = new Array();
+
+    if (currentTempApi && !celcius && tempMinMax && !celciusListDay) {
+      currentTempApi = (currentTempApi * 1.8) + 32;
+      for (index in tempMinMax) {
+        currentTempMinDay = (tempMinMax[index].min_temp * 1.8) + 32
+        currentTempMaxDay = (tempMinMax[index].max_temp * 1.8) + 32
+        listMinMaxTempDay.push({ min_temp: currentTempMinDay.toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
+      };
+
+      return setCurrentTypeGrade({ celcius: null, fahrenheit: currentTempApi.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay });
+    } else if (celcius && celciusListDay) {
+      celciusCambio = (celcius * 1.8) + 32;
+      for (index in celciusListDay) {
+        currentTempMinDay = (celciusListDay[index].min_temp * 1.8) + 32
+        currentTempMaxDay = (celciusListDay[index].max_temp * 1.8) + 32
+        listMinMaxTempDay.push({ min_temp: currentTempMinDay.toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
+      };
+      return setCurrentTypeGrade({ celcius: null, fahrenheit: celciusCambio.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay });
+    }
+
+  }
+
+  const cambioTipoCelcius = (fahrenheit, listFahrenheitDayObj) => {
+    let currentTemp = fahrenheit.fahrenheit;
+    let tempMinMax = listFahrenheitDayObj;
+    let listMinMaxTempDay = new Array();
+    let currentTempMinDay, currentTempMaxDay = 0;
+    let index = 0;
+    if (currentTemp && tempMinMax) {
+      currentTemp = ((currentTemp - 32) * 5) / 9;
+
+      for (index in tempMinMax) {
+        currentTempMinDay = ((tempMinMax[index].min_temp - 32) * 5) / 9;
+        currentTempMaxDay = ((tempMinMax[index].max_temp - 32) * 5) / 9;
+        listMinMaxTempDay.push({ min_temp: (currentTempMinDay).toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
+      };
+
+      return setCurrentTypeGrade({ celcius: currentTemp.toFixed(0), fahrenheit: null }), setListGradesDay({ celcius: listMinMaxTempDay, fahrenheit: null });
+    }
+  }
+
+
+
+  if (currentTypeGrade) {
+    console.log(currentTypeGrade)
   }
 
   return (
@@ -67,10 +122,10 @@ export default function Weather(props) {
       {metaciudad ? (
         <div className="Content columns is-gapless is-mobile is-desktop">
           <div className="column leftContent">
-            <MainWeather objWeather={metaciudad} cambioTipoGrados={cambioTipoGrados()} />
+            <MainWeather objWeather={metaciudad} currentTypeGrade={currentTypeGrade} />
           </div>
           <div className="column is-three-quarters-desktop is-three-fifths-tablet is-three-fifths-mobile RightContent">
-            <Statistics objWeather={metaciudad} />
+            <Statistics objWeather={metaciudad} cambioTipoFahrenheit={cambioTipoFahrenheit} cambioTipoCelcius={cambioTipoCelcius} currentTypeGrade={currentTypeGrade} listGradesDay={listGradesDay} />
           </div>
         </div>
       ) : (

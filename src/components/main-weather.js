@@ -3,8 +3,12 @@ import LocationOn from "@material-ui/icons/LocationOn";
 import imgWeather from "../assets/icons/clima.png";
 
 export default function MainWeather(props) {
-  const { objWeather } = props;
+  const { objWeather, currentTypeGrade } = props;
   const weatherToday = objWeather.consolidated_weather[0];
+  const fahrenheit = currentTypeGrade.fahrenheit;
+  const celcius = currentTypeGrade.celcius;
+
+
 
   return (
     <div className="section">
@@ -38,10 +42,22 @@ export default function MainWeather(props) {
         </div>
         <div className="columns is-desktop is-mobile is-gapless">
           <div className="gradosValor column is-two-thirds">
-            <h1>{weatherToday.the_temp.toFixed(0)}</h1>
+            {!fahrenheit && !celcius ? (
+              <h1>{weatherToday.the_temp.toFixed(0)}</h1>
+            ) : (
+              celcius ? (
+                <h1> {celcius} </h1>
+              ) : (
+                <h1> {fahrenheit} </h1>
+              )
+            )}
           </div>
           <div className="gradosMedida column">
-            <h2 className="grados is-size-3 ">°C</h2>
+            {currentTypeGrade.fahrenheit ? (
+              <h2 className="grados is-size-3 ">°F</h2>
+            ) : (
+              <h2 className="grados is-size-3 ">°C</h2>
+            )}
           </div>
         </div>
         <div className="columns is-desktop is-mobile is-gapless">
@@ -76,7 +92,7 @@ export default function MainWeather(props) {
           </div>
         </footer>
       </div>
-    </div>
+    </div >
   );
 }
 
