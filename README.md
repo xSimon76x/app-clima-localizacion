@@ -1,3 +1,6 @@
+# Acotación antes de la ejecucion local del sistema
+Aplicación web basada en el ambiente de React JS. La api del clima actualmente se encuentra en un estado de "proteccion",  no teniendo activado el CORS publicamente, por lo cual en caso de no cargar la pagina, se recomienda pedir permiso en el siguiente link, presionando en el boton que se encontrara: https://cors-anywhere.herokuapp.com/corsdemo
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
