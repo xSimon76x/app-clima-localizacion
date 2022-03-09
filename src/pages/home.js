@@ -111,9 +111,7 @@ export default function Weather(props) {
 
 
 
-  if (currentTypeGrade) {
-    console.log(currentTypeGrade)
-  }
+
 
   return (
     <div>

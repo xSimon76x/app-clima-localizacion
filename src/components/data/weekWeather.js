@@ -7,9 +7,7 @@ export default function weekWeather(props) {
   const fahrenheit = listGradesDay.fahrenheit
   const celcius = listGradesDay.celcius
 
-  if (celcius) {
-    console.log(celcius)
-  }
+
 
   return (
     <div className="flexContainerWeahter">
