@@ -4,7 +4,7 @@ import "bulma/css/bulma.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //link
 import React, { useState } from "react";
 import Home from "./pages/home";
-import prueba from "./api/ApiClima";
+
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       <div>
         <Router>
           <Routes>
-            <Route path="/" element={<Home apiFunction={prueba} />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </Router>
       </div>

@@ -7,8 +7,8 @@ import axios from "axios";
 //import { Details } from "@material-ui/icons";
 
 export default function Weather(props) {
-  const { apiFunction } = props;
-  console.log(apiFunction);
+
+
   const [currentTypeGrade, setCurrentTypeGrade] = useState({ celcius: null, fahrenheit: null });
   const [listGradesDay, setListGradesDay] = useState({ celcius: null, fahrenheit: null });
   let ciudad = `london`;
@@ -31,7 +31,7 @@ export default function Weather(props) {
 
     //
     // api = await fetch ("/api/location/search/?query=santiago"); // local
-    const api = await fetch("/api/location/search/?query=london", {
+    const api = await fetch("/api/location/search/?query=santiago", {
       mode: "no-cors",
       cache: "no-cache",
       credentials: "omit",

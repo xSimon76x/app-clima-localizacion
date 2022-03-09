@@ -1,4 +1,4 @@
-import { ApiWeather } from "../api/ApiWeahter"
+
 
 export default function loadingWeather() {
 
