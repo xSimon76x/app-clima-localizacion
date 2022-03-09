@@ -67,7 +67,7 @@ export default function Weather(props) {
     let currentTempMinDay = 0;
     let currentTempMaxDay = 0;
     let index = 0;
-    let listMinMaxTempDay = new Array();
+    let listMinMaxTempDay = [];
 
     if (currentTempApi && !celcius && tempMinMax && !celciusListDay) {
       currentTempApi = (currentTempApi * 1.8) + 32;
@@ -77,7 +77,7 @@ export default function Weather(props) {
         listMinMaxTempDay.push({ min_temp: currentTempMinDay.toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
       };
 
-      return setCurrentTypeGrade({ celcius: null, fahrenheit: currentTempApi.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay });
+      return (setCurrentTypeGrade({ celcius: null, fahrenheit: currentTempApi.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay }));
     } else if (celcius && celciusListDay) {
       celciusCambio = (celcius * 1.8) + 32;
       for (index in celciusListDay) {
@@ -85,7 +85,7 @@ export default function Weather(props) {
         currentTempMaxDay = (celciusListDay[index].max_temp * 1.8) + 32
         listMinMaxTempDay.push({ min_temp: currentTempMinDay.toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
       };
-      return setCurrentTypeGrade({ celcius: null, fahrenheit: celciusCambio.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay });
+      return (setCurrentTypeGrade({ celcius: null, fahrenheit: celciusCambio.toFixed(0) }), setListGradesDay({ celcius: null, fahrenheit: listMinMaxTempDay }));
     }
 
   }
@@ -93,7 +93,7 @@ export default function Weather(props) {
   const cambioTipoCelcius = (fahrenheit, listFahrenheitDayObj) => {
     let currentTemp = fahrenheit.fahrenheit;
     let tempMinMax = listFahrenheitDayObj;
-    let listMinMaxTempDay = new Array();
+    let listMinMaxTempDay = [];
     let currentTempMinDay, currentTempMaxDay = 0;
     let index = 0;
     if (currentTemp && tempMinMax) {
@@ -105,7 +105,7 @@ export default function Weather(props) {
         listMinMaxTempDay.push({ min_temp: (currentTempMinDay).toFixed(0), max_temp: (currentTempMaxDay).toFixed(0) })
       };
 
-      return setCurrentTypeGrade({ celcius: currentTemp.toFixed(0), fahrenheit: null }), setListGradesDay({ celcius: listMinMaxTempDay, fahrenheit: null });
+      return (setCurrentTypeGrade({ celcius: currentTemp.toFixed(0), fahrenheit: null }), setListGradesDay({ celcius: listMinMaxTempDay, fahrenheit: null }));
     }
   }
 
