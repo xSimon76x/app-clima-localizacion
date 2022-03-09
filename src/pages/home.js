@@ -1,17 +1,15 @@
-//import { colors } from "@material-ui/core";
+
 import MainWeather from "../components/main-weather.js";
 import Statistics from "../components/statistics.js";
 import LoadingWeather from "../components/loadingWeather.js";
 import { useEffect, useState } from "react";
-import axios from "axios";
-//import { Details } from "@material-ui/icons";
 
 export default function Weather(props) {
 
 
   const [currentTypeGrade, setCurrentTypeGrade] = useState({ celcius: null, fahrenheit: null });
   const [listGradesDay, setListGradesDay] = useState({ celcius: null, fahrenheit: null });
-  let ciudad = `london`;
+
   const [metaciudad, setMetaciudad] = useState(null);
   const headers = new Headers();
 
@@ -23,7 +21,7 @@ export default function Weather(props) {
   headers.set("Access-Control-Allow-Origin", "*");
   useEffect(() => {
     ApiClima();
-  }, []);
+  });
 
   const ApiClima = async () => {
     // try {

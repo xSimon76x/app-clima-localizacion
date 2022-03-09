@@ -2,7 +2,7 @@
 import "./App.css";
 import "bulma/css/bulma.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //link
-import React, { useState } from "react";
+import React from "react";
 import Home from "./pages/home";
 
 
